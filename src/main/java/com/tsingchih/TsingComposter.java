@@ -171,6 +171,7 @@ public class TsingComposter {
 
         @Override
         protected void addTranslations() {
+            this.add("itemGroup." + TsingComposter.modId, "Better Composter");
             this.add(COMPOSTER_BLOCK.get(), "Composting Machine");
             this.add(ComposterScreen.EnergyButton.TOOLTIP_LEVEL, "Working Level: %d");
             this.add(ComposterScreen.EnergyButton.TOOLTIP_SPEED, "Energy cost: %d FE/t");

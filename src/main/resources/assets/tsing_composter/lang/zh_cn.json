@@ -1,0 +1,6 @@
+{
+  "block.tsing_composter.composter": "堆肥机",
+  "itemGroup.tsing_composter": "更好的堆肥机",
+  "tsing_composter.composter.tooltip.level": "工作等级: %d 级",
+  "tsing_composter.composter.tooltip.speed": "能耗: %d FE/t"
+}

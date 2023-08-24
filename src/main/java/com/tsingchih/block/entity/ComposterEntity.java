@@ -102,7 +102,6 @@ public class ComposterEntity extends BaseContainerBlockEntity implements Worldly
 
     @Override
     protected AbstractContainerMenu createMenu(int containerId, Inventory inv) {
-        TsingComposter.LOGGER.debug("create menu");
         return new ComposterMenu(containerId, inv, this, this.dataAccess, this.getBlockPos());
     }
 

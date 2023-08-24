@@ -1,5 +1,6 @@
 {
   "block.tsing_composter.composter": "Composting Machine",
+  "itemGroup.tsing_composter": "Better Composter",
   "tsing_composter.composter.tooltip.level": "Working Level: %d",
   "tsing_composter.composter.tooltip.speed": "Energy cost: %d FE/t"
 }

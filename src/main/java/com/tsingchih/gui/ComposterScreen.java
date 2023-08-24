@@ -102,7 +102,6 @@ public class ComposterScreen extends AbstractContainerScreen<ComposterMenu> {
 
             int barHeight = Math.round(this.energy * this.height);
             RenderSystem.enableDepthTest();
-            TsingComposter.LOGGER.debug("render bar height {}", barHeight);
             this.blit(pose, this.x, this.y + this.height - barHeight, this.xTex, this.yTex, this.width, barHeight);
         }
 
