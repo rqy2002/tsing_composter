@@ -224,7 +224,7 @@ public class TsingComposter {
                     .pattern("ccc")
                     .pattern("i#i")
                     .pattern("iii")
-                    .define('i', Items.IRON_BARS)
+                    .define('i', Items.IRON_INGOT)
                     .define('c', Tags.Items.GLASS)
                     .define('#', Items.COMPOSTER)
                     .unlockedBy("has_iron", has(Items.IRON_BARS))
