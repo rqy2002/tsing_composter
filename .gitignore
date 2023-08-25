@@ -109,7 +109,7 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
-.cache/*
+**/.cache/
 
 **/build/
 

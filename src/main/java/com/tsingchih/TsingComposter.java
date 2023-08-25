@@ -36,13 +36,16 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelProvider;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.network.IContainerFactory;
@@ -100,7 +103,6 @@ public class TsingComposter {
             PROTOCOL_VERSION::equals,
             PROTOCOL_VERSION::equals
     );
-
     public TsingComposter() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -187,7 +189,7 @@ public class TsingComposter {
         protected void registerStatesAndModels() {
             String name = COMPOSTER_BLOCK.get().getRegistryName().getPath();
             String texture = ModelProvider.BLOCK_FOLDER + "/" + name;
-            ModelFile m = models().cubeTop(name, modLoc(texture + "_side"), modLoc(texture + "_top"));
+            ModelFile m = models().cubeBottomTop(name, modLoc(texture + "_side"), modLoc(texture + "_bottom"), modLoc(texture + "_top"));
             this.simpleBlock(COMPOSTER_BLOCK.get(), m);
             this.simpleBlockItem(COMPOSTER_BLOCK.get(), m);
         }

@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:block/cube_top",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "side": "tsing_composter:block/composter_side",
+    "bottom": "tsing_composter:block/composter_bottom",
     "top": "tsing_composter:block/composter_top"
   }
 }
