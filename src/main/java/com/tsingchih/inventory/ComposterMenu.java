@@ -129,6 +129,10 @@ public class ComposterMenu extends AbstractContainerMenu {
         return this.data.get(1);
     }
 
+    public boolean enoughEnergy() {
+        return this.data.get(3) > ComposterEntity.energyCost(getEnergyLevel());
+    }
+
     // 0 ~ 6
     public int getCompostProgress() {
         return this.data.get(2);

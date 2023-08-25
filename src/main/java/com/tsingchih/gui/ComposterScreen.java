@@ -33,7 +33,7 @@ public class ComposterScreen extends AbstractContainerScreen<ComposterMenu> {
     public void init() {
         super.init();
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
-        this.energyButton = new EnergyButton(this.menu, this.leftPos + 152, this.topPos + 60, 16, 16, 176, 76, 16);
+        this.energyButton = new EnergyButton(this.menu, this.leftPos + 152, this.topPos + 60, 16, 16, 176, 76, 16,16);
         this.energyBar = new EnergyBar(this.leftPos + 159, this.topPos + 10, 4, 40, 176, 36);
         this.addRenderableWidget(this.energyButton);
     }
@@ -113,13 +113,14 @@ public class ComposterScreen extends AbstractContainerScreen<ComposterMenu> {
     public static class EnergyButton extends AbstractButton {
         public static final String TOOLTIP_LEVEL = TsingComposter.modId + ".composter.tooltip.level";
         public static final String TOOLTIP_SPEED = TsingComposter.modId + ".composter.tooltip.speed";
-        private final int xTex, yTex, yDiff;
+        private final int xTex, yTex, xDiff, yDiff;
         private final ComposterMenu menu;
-        public EnergyButton(ComposterMenu menu, int x, int y, int width, int height, int xTex, int yTex, int yDiff) {
+        public EnergyButton(ComposterMenu menu, int x, int y, int width, int height, int xTex, int yTex, int xDiff, int yDiff) {
             super(x, y, width, height, TextComponent.EMPTY);
             this.menu = menu;
             this.xTex = xTex;
             this.yTex = yTex;
+            this.xDiff = xDiff;
             this.yDiff = yDiff;
         }
 
@@ -137,10 +138,12 @@ public class ComposterScreen extends AbstractContainerScreen<ComposterMenu> {
         public void renderButton(PoseStack pose, int mouseX, int mouseY, float partialTick) {
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderTexture(0, ComposterScreen.texture);
-            int y = this.yTex + this.menu.getEnergyLevel() * this.yDiff;
+            int yTex = this.yTex + this.menu.getEnergyLevel() * this.yDiff;
+            int xTex1 = this.menu.enoughEnergy() ? this.xTex : this.xTex + this.xDiff;
+            int xTex = this.isHovered ? xTex1 + 2 * this.xDiff : xTex1;
 
             RenderSystem.enableDepthTest();
-            this.blit(pose, this.x, this.y, this.xTex, y, this.width, this.height);
+            this.blit(pose, this.x, this.y, xTex, yTex, this.width, this.height);
         }
 
         @Override

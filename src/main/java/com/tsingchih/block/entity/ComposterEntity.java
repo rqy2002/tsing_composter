@@ -95,6 +95,11 @@ public class ComposterEntity extends BaseContainerBlockEntity implements Worldly
         this(TsingComposter.COMPOSTER_ENTITY.get(), pos, state);
     }
 
+    static public int energyCost(int x) {
+        if (x >= 4 || x < 0) return 0;
+        return ENERGY_COST[x];
+    }
+
     @Override
     protected Component getDefaultName() {
         return new TranslatableComponent(NAME);
